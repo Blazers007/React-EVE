@@ -5,13 +5,13 @@ var streamify	 = require('gulp-streamify');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin 	     = require('gulp-cssmin');
 var less 		 = require('gulp-less');
-var concat 		 = require('gulp-concat');
+var concat 		 = require('gulp-concat');  //多个文件合并
 var plumber 	 = require('gulp-plumber');
 var source 		 = require('vinyl-source-stream');
 var babelify 	 = require('babelify');
 var browserify	 = require('browserify');
 var watchify	 = require('watchify');
-var uglify 		 = require('gulp-uglify');
+var uglify 		 = require('gulp-uglify'); //压缩JS
 
 var production = process.env.NODE_ENV === 'production';
 
@@ -35,7 +35,7 @@ gulp.task('vendor', function() {
     'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
     'bower_components/toastr/toastr.js'
   ]).pipe(concat('vendor.js'))
-    .pipe(gulpif(production, uglify({ mangle: false })))
+    .pipe(gulpif(production, uglify({ mangle: false }))) // 如果当前是Production环境则压缩
     .pipe(gulp.dest('public/js'));
 });
 

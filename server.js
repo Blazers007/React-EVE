@@ -42,9 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // API 路由中间件
 app.use(require('./routes/api/characters'));
-app.use(require('./routes/api/favorites'));
 
-// React 中间件
+// React 中间件 用React的Router组件作为入口 并处理路由问题
 app.use(function(req, res) {
   Router.match({ routes: routes, location: req.url }, function(err, redirectLocation, renderProps) {
     if (err) {

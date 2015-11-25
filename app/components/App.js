@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import AppBar from 'material-ui/lib/app-bar';
+
 
 class App extends React.Component {
 	render(){
 		return (
 			<div>
-				<Navbar history={this.props.history} /> 
+				<Navbar history={this.props.history} />
 				{this.props.children}
 				<Footer />
 			</div>

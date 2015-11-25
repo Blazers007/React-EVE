@@ -11,7 +11,7 @@ class FooterStore {
 
     // 内部所有方法被调用的时候 均会触发 该Store Listen的Component的onChange方法
     onGetTopCharactersSuccess(data) {
-        this.characters = data.slice(0, 5);
+        this.characters = data.slice(0, 5); //截取 0-4 5个元素
     }
 
     onGetTopCharactersFail(jqXhr) {
